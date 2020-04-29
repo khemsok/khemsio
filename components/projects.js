@@ -40,9 +40,45 @@ function Projects() {
       <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
       <div>
         <Typography
-          variant="body1"
+          variant="body2"
           align="center"
-          style={{ marginBottom: "10px" }}
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          2020
+        </Typography>
+        <Typography
+          variant="h3"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          🔎
+        </Typography>
+        <Typography
+          variant="h4"
+          align="center"
+          style={{ marginBottom: "30px", fontWeight: "700" }}
+        >
+          Facial Expression Detector
+        </Typography>
+        <img
+          src="https://github.com/khemsok/facialexpressiondetector/raw/master/static/output_friends2.jpg"
+          style={{
+            maxWidth: "100%",
+            marginBottom: "30px",
+          }}
+        />
+      </div>
+      <div>
+        <Typography
+          variant="body2"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
         >
           2020
         </Typography>
@@ -69,9 +105,74 @@ function Projects() {
             marginBottom: "30px",
           }}
         />
-        <Container maxWidth="xs">
-          <Typography variant="body1">Description: </Typography>
-        </Container>
+      </div>
+      <div>
+        <Typography
+          variant="body2"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          2020
+        </Typography>
+        <Typography
+          variant="h3"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          👀
+        </Typography>
+        <Typography
+          variant="h4"
+          align="center"
+          style={{ marginBottom: "30px", fontWeight: "700" }}
+        >
+          LookUpYourGitHub
+        </Typography>
+        <img
+          src="https://github.com/khemsok/lookupyourgithub/raw/master/static/images/screenshot1.png"
+          style={{
+            maxWidth: "100%",
+            marginBottom: "30px",
+          }}
+        />
+      </div>
+      <div>
+        <Typography
+          variant="body2"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          2020
+        </Typography>
+        <Typography
+          variant="h3"
+          align="center"
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          👿
+        </Typography>
+        <Typography
+          variant="h4"
+          align="center"
+          style={{ marginBottom: "30px", fontWeight: "700" }}
+        >
+          Covid19Tracker
+        </Typography>
+        <img
+          src="https://github.com/khemsok/covid19tracker/raw/master/static/images/screenshot1.png"
+          style={{
+            maxWidth: "100%",
+            marginBottom: "30px",
+          }}
+        />
       </div>
     </div>
   );

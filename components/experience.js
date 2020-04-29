@@ -14,6 +14,14 @@ const useStyles = makeStyles({
   container: {
     padding: "100px 0",
   },
+  experiencImagesDiv: {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+    ["@media (max-width: 960px)"]: {
+      justifyContent: "center",
+    },
+  },
 });
 
 function Experience() {
@@ -24,14 +32,14 @@ function Experience() {
       date: "2019 - Present",
       title: "Machine Learning Engineer - DuPont",
       description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis quo necessitatibus itaque ipsam soluta eligendi quam doloremque corporis delectus labore possimus sunt porro, accusantium dignissimos?",
+        "My role at DuPont is unique as it allows me to have the opportunities to work on various stack and utilize my flexible skillset. My role goes beyond just Machine Learning/Data Science, I contribute majorly with Data Engineering as well as Full Stack Development. I am an asset to every team as my knowledge based are sound.",
       color: "red",
     },
     psu: {
       date: "2014 - 2018",
       title: "Student - Pennsylvania State University",
       description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis quo necessitatibus itaque ipsam soluta eligendi quam doloremque corporis delectus labore possimus sunt porro, accusantium dignissimos?",
+        "I studied computer engineering at Penn State. During my time there, I held various teacher assistant positions for a multitude of different computer science courses, helping students with homeworks/projects as well as professors to create and design curriculum from semester to semesters. #WEARE",
       color: "blue",
     },
   };
@@ -60,7 +68,8 @@ function Experience() {
   ));
   return (
     <div className={classes.container} id="experience">
-      <Container maxWidth="xs">
+      {/* <Container maxWidth="xs"> */}
+      <div style={{ maxWidth: "700px" }}>
         <div
           style={{
             display: "flex",
@@ -91,10 +100,23 @@ function Experience() {
           <Typography variant="h5">What I've Done</Typography>
         </div>
         {timelineMap}
-        {/* <div style={{ textAlign: "center", marginTop: "70px" }}>
+        <div className={classes.experiencImagesDiv}>
+          <img
+            src="/images/pennstate.svg"
+            style={{ padding: "20px", opacity: "0.5", width: "200px" }}
+          />
+
+          <img
+            src="/images/DuPont.svg"
+            style={{ padding: "20px", opacity: "0.5", width: "200px" }}
+          />
+        </div>
+      </div>
+
+      {/* <div style={{ textAlign: "center", marginTop: "70px" }}>
           <ArrowDownwardIcon fontSize="large" color="primary" />
         </div> */}
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }
