@@ -5,6 +5,9 @@ import Typography from "@material-ui/core/Typography";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
+import Fade from "@material-ui/core/Fade";
+import Grow from "@material-ui/core/Grow";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 // MUI Icon
@@ -109,25 +112,32 @@ function Navbar() {
   );
 
   return (
-    <div className={classes.navMain} style={!visible ? { top: "-100px" } : {}}>
-      <Typography variant="h1">K</Typography>
-      <div className={classes.navSection}>
-        <a href="#">
-          <Typography>About Me</Typography>
-        </a>
-        <a href="#">
-          <Typography>Experience</Typography>
-        </a>
+    <Grow in={true} timeout={1000}>
+      <div>
+        <div
+          className={classes.navMain}
+          style={!visible ? { top: "-100px" } : {}}
+        >
+          <Typography variant="h1">K</Typography>
+          <div className={classes.navSection}>
+            <a href="#about-me">
+              <Typography>About Me</Typography>
+            </a>
+            <a href="#experience">
+              <Typography>Experience</Typography>
+            </a>
 
-        <a href="#">
-          <Typography>Projects</Typography>
-        </a>
-        <a href="#">
-          <Typography>Contact</Typography>
-        </a>
+            <a href="#">
+              <Typography>Projects</Typography>
+            </a>
+            <a href="#">
+              <Typography>Contact</Typography>
+            </a>
+          </div>
+          <div className={classes.navButton}>{hamburger}</div>
+        </div>
       </div>
-      <div className={classes.navButton}>{hamburger}</div>
-    </div>
+    </Grow>
   );
 }
 

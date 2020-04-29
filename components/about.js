@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 function About() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes.container} id="about-me">
       <Typography variant="h2">About Me</Typography>
       <Typography variant="body2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
