@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 
 // MUI Icon
@@ -17,8 +20,6 @@ const useStyles = makeStyles({
     width: "100%",
     top: "0",
     transition: "all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
-    backgroundColor: "white",
-    zIndex: "9999",
     "& h1": {
       fontSize: "3em",
     },
@@ -56,11 +57,20 @@ function Navbar() {
 
   const [prevScrollPos, setPrevScrollPos] = useState(null);
   const [visible, setVisible] = useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
     setVisible(currentScrollPos < 50);
     setPrevScrollPos(currentScrollPos);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   useEffect(() => {
@@ -76,6 +86,25 @@ function Navbar() {
       };
     }
   }, [prevScrollPos]);
+
+  const hamburger = (
+    <>
+      <IconButton onClick={handleClick}>
+        <MenuIcon />
+      </IconButton>
+      <Menu
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>About Me</MenuItem>
+        <MenuItem onClick={handleClose}>Experience</MenuItem>
+        <MenuItem onClick={handleClose}>Projects</MenuItem>
+        <MenuItem onClick={handleClose}>Contact</MenuItem>
+      </Menu>
+    </>
+  );
 
   return (
     <div className={classes.navMain} style={!visible ? { top: "-100px" } : {}}>
@@ -95,9 +124,7 @@ function Navbar() {
           <Typography>Contact</Typography>
         </a>
       </div>
-      <div className={classes.navButton}>
-        <MenuIcon />
-      </div>
+      <div className={classes.navButton}>{hamburger}</div>
     </div>
   );
 }
