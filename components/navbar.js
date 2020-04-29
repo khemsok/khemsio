@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     width: "100%",
     top: "0",
     transition: "all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
+    backgroundColor: "white",
     "& h1": {
       fontSize: "3em",
     },
