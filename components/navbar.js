@@ -75,6 +75,7 @@ function Navbar() {
 
   useEffect(() => {
     setPrevScrollPos(window.pageYOffset);
+    setVisible(window.pageYOffset < 50);
   }, []);
 
   useEffect(() => {
