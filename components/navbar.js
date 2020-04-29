@@ -17,7 +17,6 @@ const useStyles = makeStyles({
     width: "100%",
     top: "0",
     transition: "all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
-    boxShadow: " 0px 1px 10px #999",
     backgroundColor: "white",
     zIndex: "9999",
     "& h1": {
@@ -34,6 +33,7 @@ const useStyles = makeStyles({
       display: "flex",
     },
     "& a": {
+      color: "inherit",
       textDecoration: "none",
       cursor: "pointer",
       "&:visited": {
@@ -82,9 +82,9 @@ function Navbar() {
       className={classes.navMain}
       style={
         !visible
-          ? { top: "-100px", boxShadow: "none" }
-          : prevScrollPos === 0
-          ? { boxShadow: "none" }
+          ? { top: "-100px" }
+          : (prevScrollPos !== null) & (prevScrollPos !== 0)
+          ? { boxShadow: " 0px 1px 10px #999" }
           : null
       }
     >
