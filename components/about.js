@@ -69,9 +69,7 @@ function About() {
   const skillListMap = Object.keys(skillList).map((element, index) => {
     return (
       <Grid item lg={4} sm={6} xs={12} key={index}>
-        <Typography component={"span"} style={{ verticalAlign: "middle" }}>
-          <ArrowRightIcon color="primary" />
-        </Typography>
+        <ArrowRightIcon color="primary" style={{ verticalAlign: "middle" }} />
         <Tooltip title={skillList[element]} placement="top-start">
           <Typography
             variant="body2"
