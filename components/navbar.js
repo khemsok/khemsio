@@ -54,6 +54,15 @@ const useStyles = makeStyles({
       display: "none",
     },
   },
+  navHamburger: {
+    "& a": {
+      textDecoration: "none",
+      color: "inherit",
+      "&:visited": {
+        color: "inherit",
+      },
+    },
+  },
 });
 
 function Navbar() {
@@ -92,6 +101,13 @@ function Navbar() {
     }
   }, [prevScrollPos]);
 
+  const sectionIdDict = {
+    "About Me": "#about-me",
+    Experience: "#experience",
+    Projects: "#projects",
+    Contact: "#contact",
+  };
+
   const hamburger = (
     <>
       <IconButton onClick={handleClick}>
@@ -102,11 +118,13 @@ function Navbar() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className={classes.navHamburger}
       >
-        <MenuItem onClick={handleClose}>About Me</MenuItem>
-        <MenuItem onClick={handleClose}>Experience</MenuItem>
-        <MenuItem onClick={handleClose}>Projects</MenuItem>
-        <MenuItem onClick={handleClose}>Contact</MenuItem>
+        {Object.keys(sectionIdDict).map((element, index) => (
+          <MenuItem onClick={handleClose}>
+            <a href={sectionIdDict[element]}>{element}</a>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );
@@ -120,19 +138,11 @@ function Navbar() {
         >
           <Typography variant="h1">K</Typography>
           <div className={classes.navSection}>
-            <a href="#about-me">
-              <Typography>About Me</Typography>
-            </a>
-            <a href="#experience">
-              <Typography>Experience</Typography>
-            </a>
-
-            <a href="#">
-              <Typography>Projects</Typography>
-            </a>
-            <a href="#">
-              <Typography>Contact</Typography>
-            </a>
+            {Object.keys(sectionIdDict).map((element, index) => (
+              <a href={sectionIdDict[element]} key={index}>
+                <Typography>{element}</Typography>
+              </a>
+            ))}
           </div>
           <div className={classes.navButton}>{hamburger}</div>
         </div>

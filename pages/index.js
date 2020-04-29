@@ -5,6 +5,8 @@ import Navbar from "../components/navbar";
 import Landing from "../components/landing";
 import About from "../components/about";
 import Experience from "../components/experience";
+import Projects from "../components/projects";
+import Contact from "../components/contact";
 
 // MUI
 import Container from "@material-ui/core/Container";
@@ -39,6 +41,8 @@ export default function Home() {
         <Landing />
         <About />
         <Experience />
+        <Projects />
+        <Contact />
       </Container>
     </>
   );

@@ -37,7 +37,7 @@ function Landing() {
             Highly skilled in multitude of different stack. Have a passion for
             learning and creating.
           </Typography>
-          <Button variant="outlined" color="primary">
+          <Button size="large" variant="outlined" color="primary">
             Contact Me
           </Button>
         </div>
