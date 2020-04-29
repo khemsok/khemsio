@@ -40,7 +40,7 @@ function Experience() {
       title: "Student - Pennsylvania State University",
       description:
         "I studied computer engineering at Penn State. During my time there, I held various teacher assistant positions for a multitude of different computer science courses, helping students with homeworks/projects as well as professors to create and design curriculum from semester to semesters. #WEARE",
-      color: "blue",
+      color: "red",
     },
   };
 
