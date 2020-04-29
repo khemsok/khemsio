@@ -7,13 +7,14 @@ import About from "../components/about";
 import Experience from "../components/experience";
 import Projects from "../components/projects";
 import Contact from "../components/contact";
+import Footer from "../components/footer";
 
 // MUI
 import Container from "@material-ui/core/Container";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,6 +44,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Contact />
+        <Footer />
       </Container>
     </>
   );

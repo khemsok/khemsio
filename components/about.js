@@ -2,25 +2,173 @@ import React from "react";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Fade from "@material-ui/core/Fade";
+import Grow from "@material-ui/core/Grow";
+
 import { makeStyles } from "@material-ui/core/styles";
+
+// MUI Icons
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles({
   container: {
-    padding: "150px 0",
+    padding: "100px 0",
+  },
+  titleNumber: {
+    display: "inline",
+    fontSize: "2rem",
+  },
+  contentDescription: {
+    maxWidth: "700px",
+  },
+  cvSection: {
+    display: "flex",
+    alignItems: "center",
+  },
+  socialMediaDiv: {
+    marginLeft: "23px",
+    "& a": {
+      margin: "0 7px",
+      cursor: "pointer",
+      transition: "all .15s ease-in-out",
+    },
+    "& a:hover": {
+      color: "#FF3E55",
+    },
+  },
+  horizontalBar: {
+    marginLeft: "30px",
+    width: "50px",
+    height: "2.5px",
+    borderRadius: "3px",
+    backgroundColor: "#9f9f9f",
   },
 });
 
 function About() {
   const classes = useStyles();
+  const skillList = {
+    Python: "Highly Skilled",
+    JavaScript: "Highly Skilled",
+    R: "Proficient",
+    Azure: "Highly Skilled",
+    Docker: "Proficient",
+    React: "Highly Skilled",
+    NodeJS: "Highly Skilled",
+    SQL: "Highly Skilled",
+    "No-SQL": "Highly Skilled",
+  };
+
+  const skillListMap = Object.keys(skillList).map((element, index) => {
+    return (
+      <Grid item lg={4} sm={6} xs={12} key={index}>
+        <Typography component={"span"} style={{ verticalAlign: "middle" }}>
+          <ArrowRightIcon color="primary" />
+        </Typography>
+        <Tooltip title={skillList[element]} placement="top-start">
+          <Typography
+            variant="body2"
+            style={{ fontSize: ".9em", display: "inline" }}
+          >
+            {element}
+          </Typography>
+        </Tooltip>
+      </Grid>
+    );
+  });
   return (
     <div className={classes.container} id="about-me">
-      <Typography variant="h2">About Me</Typography>
-      <Typography variant="body2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-        voluptatum quos? Consectetur, molestiae, consequatur perspiciatis,
-        maxime nulla doloribus similique minima repellendus voluptates esse
-        quidem eius!
-      </Typography>
+      <div className={classes.contentDescription}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "20px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <Typography variant="h3">About Me</Typography>
+          <div
+            style={{
+              height: "2px",
+              backgroundColor: "grey",
+              width: "100%",
+              display: "inline-block",
+              marginLeft: "20px",
+              maxWidth: "250px",
+            }}
+          />
+        </div>
+
+        <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
+        <div style={{ marginBottom: "20px" }}>
+          {/* UPDATE TO STYLED*/}
+          <Typography
+            variant="h6"
+            color="primary"
+            style={{ marginBottom: "5x" }}
+          >
+            Who am I?
+          </Typography>
+          <Typography variant="h5" style={{ marginBottom: "10px" }}>
+            I'm Khem Sok and I'm a Machine Learning Engineer
+          </Typography>
+          <Typography variant="body1">
+            I graduated from{" "}
+            <Typography
+              color="primary"
+              component={"span"}
+              style={{ fontWeight: "700" }}
+            >
+              Penn State University
+            </Typography>{" "}
+            with a degree in Computer Engineering. During my time at Penn State,
+            I enjoy learning about various stacks which allows me to be
+            well-versed in many different fields of tech. I am currently working
+            at{" "}
+            <Typography
+              color="primary"
+              component={"span"}
+              style={{ display: "inline", fontWeight: "700" }}
+            >
+              DuPont
+            </Typography>{" "}
+            and my role allows me to be at the forefront of helping businesses
+            across DuPont to increase revenue with the usage of data.
+          </Typography>
+        </div>
+        <div style={{ maxWidth: "500px", marginBottom: "50px" }}>
+          {/* CHANGE TO STYLED*/}
+          <Typography variant="body1" style={{ marginBottom: "10px" }}>
+            Here are some technologies I am well-versed in:
+          </Typography>
+          <Grid container>{skillListMap}</Grid>
+        </div>
+        <div className={classes.cvSection}>
+          <Button variant="contained" color="primary" size="small">
+            Download CV
+          </Button>
+          <div className={classes.horizontalBar} />
+          <div className={classes.socialMediaDiv}>
+            <a>
+              <LinkedInIcon />
+            </a>
+            <a>
+              <InstagramIcon />
+            </a>
+            <a>
+              <GitHubIcon />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

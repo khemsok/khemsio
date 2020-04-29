@@ -121,7 +121,7 @@ function Navbar() {
         className={classes.navHamburger}
       >
         {Object.keys(sectionIdDict).map((element, index) => (
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleClose} key={index}>
             <a href={sectionIdDict[element]}>{element}</a>
           </MenuItem>
         ))}
@@ -140,7 +140,7 @@ function Navbar() {
           <div className={classes.navSection}>
             {Object.keys(sectionIdDict).map((element, index) => (
               <a href={sectionIdDict[element]} key={index}>
-                <Typography>{element}</Typography>
+                <Typography variant="body1">{element}</Typography>
               </a>
             ))}
           </div>

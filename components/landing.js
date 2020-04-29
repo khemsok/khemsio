@@ -20,6 +20,9 @@ const useStyles = makeStyles({
       marginTop: "25px",
     },
   },
+  jobTitle: {
+    marginBottom: "10px",
+  },
 });
 
 function Landing() {
@@ -28,12 +31,14 @@ function Landing() {
     <Fade in={true} direction="right" timeout={1000}>
       <div className={classes.container}>
         <div className={classes.textSection}>
-          <Typography variant="body1">My name is</Typography>
+          <Typography variant="body2">My name is</Typography>
           <Typography variant="h1" color="primary">
             Khem Sok
           </Typography>
-          <Typography variant="h2">Machine Learning Engineer</Typography>
-          <Typography variant="body2">
+          <Typography variant="h2" className={classes.jobTitle}>
+            Machine Learning Engineer
+          </Typography>
+          <Typography variant="body1">
             Highly skilled in multitude of different stack. Have a passion for
             learning and creating.
           </Typography>

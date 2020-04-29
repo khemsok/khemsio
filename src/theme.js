@@ -26,14 +26,21 @@ const theme = createMuiTheme({
     },
     h2: {
       fontFamily: "Roboto, sans-serif",
-      fontWeight: "400",
+      fontWeight: "700",
     },
     h3: {
       fontFamily: "Roboto Condensed, sans-serif",
       fontWeight: "700",
     },
     h4: {
-      fontFamily: "Roboto Mono, monospace",
+      fontFamily: "Roboto, sans-serif",
+      fontWeight: "700",
+    },
+    h5: {
+      fontFamily: "Roboto, sans-serif",
+      fontWeight: "700",
+    },
+    h6: {
       fontWeight: "700",
     },
     subtitle1: {
@@ -44,10 +51,10 @@ const theme = createMuiTheme({
       fontFamily: "Roboto Condensed, sans-serif",
     },
     body1: {
-      fontFamily: "Roboto Mono, monospace",
+      fontFamily: "Roboto Condensed, sans-serif",
     },
     body2: {
-      fontFamily: "Roboto Condensed, sans-serif",
+      fontFamily: "Roboto Mono, monospace",
     },
   },
 });
