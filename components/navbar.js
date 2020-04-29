@@ -59,7 +59,7 @@ function Navbar() {
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
-    setVisible(prevScrollPos > currentScrollPos);
+    setVisible(currentScrollPos < 50);
     setPrevScrollPos(currentScrollPos);
   };
 
@@ -78,16 +78,7 @@ function Navbar() {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={classes.navMain}
-      style={
-        !visible
-          ? { top: "-100px" }
-          : (prevScrollPos !== null) & (prevScrollPos !== 0)
-          ? { boxShadow: " 0px 1px 10px #999" }
-          : null
-      }
-    >
+    <div className={classes.navMain} style={!visible ? { top: "-100px" } : {}}>
       <Typography variant="h1">K</Typography>
       <div className={classes.navSection}>
         <a href="#">
