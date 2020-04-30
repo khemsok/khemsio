@@ -24,8 +24,15 @@ const useStyles = makeStyles({
     top: "0",
     transition: "all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
     backgroundColor: "white",
-    "& h1": {
+    "& a": {
       fontSize: "3em",
+      cursor: "pointer",
+      color: "inherit",
+      textDecoration: "none",
+      transition: "all .15s ease-in-out",
+      "&:hover": {
+        color: "#FF3E55",
+      },
     },
   },
 
@@ -47,7 +54,7 @@ const useStyles = makeStyles({
         color: "inherit",
       },
       "&:hover": {
-        color: "red",
+        color: "#FF3E55",
       },
     },
   },
@@ -138,7 +145,9 @@ function Navbar() {
           className={classes.navMain}
           style={!visible ? { top: "-100px" } : {}}
         >
-          <Typography variant="h1">K</Typography>
+          <Typography variant="h1" component={"a"} href="/">
+            K
+          </Typography>
           <div className={classes.navSection}>
             {Object.keys(sectionIdDict).map((element, index) => (
               <a href={sectionIdDict[element]} key={index}>
