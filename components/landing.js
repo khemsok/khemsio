@@ -31,7 +31,6 @@ function Landing() {
     <Fade in={true} direction="right" timeout={1000}>
       <div className={classes.container}>
         <div className={classes.textSection}>
-          <Typography variant="body2">My name is</Typography>
           <Typography variant="h1" color="primary">
             Khem Sok
           </Typography>
@@ -42,7 +41,7 @@ function Landing() {
             Highly skilled in multitude of different stack. Have a passion for
             learning and creating.
           </Typography>
-          <Button size="large" variant="outlined" color="primary">
+          <Button size="large" variant="contained" color="primary">
             Contact Me
           </Button>
         </div>

@@ -79,12 +79,15 @@ function About() {
     Python: "Highly Skilled",
     JavaScript: "Highly Skilled",
     R: "Proficient",
-    Azure: "Highly Skilled",
+    Spark: "Proficient",
+    PyTorch: "Proficient",
+    "Azure/AWS": "Highly Skilled",
     Docker: "Proficient",
-    React: "Highly Skilled",
+    "React/Redux": "Highly Skilled",
     NodeJS: "Highly Skilled",
     SQL: "Highly Skilled",
     "No-SQL": "Highly Skilled",
+    "Database Design": "Proficient",
   };
 
   const skillListMap = Object.keys(skillList).map((element, index) => {
