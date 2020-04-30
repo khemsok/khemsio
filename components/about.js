@@ -38,6 +38,7 @@ const useStyles = makeStyles({
   socialMediaDiv: {
     marginLeft: "23px",
     "& a": {
+      color: "inherit",
       margin: "0 7px",
       cursor: "pointer",
       transition: "all .15s ease-in-out",
@@ -189,25 +190,32 @@ function About() {
         </Grow>
 
         <Waypoint onEnter={handleEnteringFour} />
-        <Slide direction="right" in={viewStatusFour} timeout={500}>
+        <Grow in={viewStatusFour} timeout={500}>
           <div className={classes.cvSection}>
-            <Button variant="contained" color="primary" size="small">
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              component={"a"}
+              href="/documents/khemSok.pdf"
+              target="_blank"
+            >
               Download CV
             </Button>
             <div className={classes.horizontalBar} />
             <div className={classes.socialMediaDiv}>
-              <a>
+              <a href="https://www.linkedin.com/in/khem-sok/" target="_blank">
                 <LinkedInIcon />
               </a>
-              <a>
+              <a href="https://www.instagram.com/_aceeeeeee_/" target="_blank">
                 <InstagramIcon />
               </a>
-              <a>
+              <a href="https://github.com/khemsok" target="_blank">
                 <GitHubIcon />
               </a>
             </div>
           </div>
-        </Slide>
+        </Grow>
       </div>
     </div>
   );
