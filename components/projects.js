@@ -26,13 +26,41 @@ const useStyles = makeStyles({
   },
 });
 
+function Project({ imgDir, image }) {
+  const [viewStatus, setViewStatus] = useState(false);
+  const handleEntering = () => {
+    setViewStatus(true);
+  };
+
+  return (
+    <Grid item xs={12} md={6}>
+      <Waypoint onEnter={handleEntering} />
+      <Fade in={viewStatus} timeout={1000}>
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={imgDir.concat(image)}
+              style={{
+                minHeight: "400px",
+                boxShadow:
+                  " 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
+                borderRadius: "5px",
+              }}
+            />
+          </CardActionArea>
+        </Card>
+      </Fade>
+    </Grid>
+  );
+}
+
 function Projects() {
   const classes = useStyles();
 
   const [viewStatusOne, setViewStatusOne] = useState(false);
   const [viewStatusTwo, setViewStatusTwo] = useState(false);
-  const [viewStatusThree, setViewStatusThree] = useState(false);
-  const [viewStatusFour, setViewStatusFour] = useState(false);
+
   const [viewStatusFive, setViewStatusFive] = useState(false);
 
   const handleEnteringOne = () => {
@@ -40,13 +68,6 @@ function Projects() {
   };
   const handleEnteringTwo = () => {
     setViewStatusTwo(true);
-  };
-  const handleEnteringThree = () => {
-    setViewStatusThree(true);
-  };
-
-  const handleEnteringFour = () => {
-    setViewStatusFour(true);
   };
 
   const handleEnteringFive = () => {
@@ -62,33 +83,7 @@ function Projects() {
   const imgDir = "/images/";
 
   const projectMap = imgList.map((element, index) => (
-    <Grid item xs={12} md={6}>
-      {(index === 0) | (index === 1) ? (
-        <Waypoint onEnter={handleEnteringThree} />
-      ) : (
-        <Waypoint onEnter={handleEnteringFour} />
-      )}
-      <Fade
-        in={(index === 0) | (index === 1) ? viewStatusThree : viewStatusFour}
-        timeout={1000}
-        style={(index === 1) | (index === 3) ? { transitionDelay: ".3s" } : {}}
-      >
-        <Card>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              image={imgDir.concat(element)}
-              style={{
-                minHeight: "400px",
-                boxShadow:
-                  " 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
-                borderRadius: "5px",
-              }}
-            />
-          </CardActionArea>
-        </Card>
-      </Fade>
-    </Grid>
+    <Project imgDir={imgDir} image={element} key={index} />
   ));
 
   return (
