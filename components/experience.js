@@ -23,6 +23,16 @@ const useStyles = makeStyles({
     ["@media (max-width: 960px)"]: {
       justifyContent: "center",
     },
+    "& img": {
+      padding: "20px",
+      opacity: "0.5",
+      width: "200px",
+      cursor: "pointer",
+      transition: "all .15s ease-in-out",
+      "&:hover": {
+        opacity: "1",
+      },
+    },
   },
 });
 
@@ -149,15 +159,13 @@ function Experience() {
         <Waypoint onEnter={handleEnteringFive} />
         <Fade in={viewStatusFive} timeout={1000}>
           <div className={classes.experiencImagesDiv}>
-            <img
-              src="/images/pennstate.svg"
-              style={{ padding: "20px", opacity: "0.5", width: "200px" }}
-            />
+            <a href="https://www.psu.edu/" target="_blank">
+              <img src="/images/pennstate.svg" />
+            </a>
 
-            <img
-              src="/images/DuPont.svg"
-              style={{ padding: "20px", opacity: "0.5", width: "200px" }}
-            />
+            <a href="https://www.dupont.com/" target="_blank">
+              <img src="/images/DuPont.svg" />
+            </a>
           </div>
         </Fade>
       </div>

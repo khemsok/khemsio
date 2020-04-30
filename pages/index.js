@@ -42,7 +42,7 @@ export default function Home() {
         <Landing />
         <About />
         <Experience />
-        {/* <Projects /> */}
+        <Projects />
         <Contact />
         <Footer />
       </Container>

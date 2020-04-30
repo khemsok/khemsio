@@ -86,7 +86,7 @@ function About() {
     "React/Redux": "Highly Skilled",
     NodeJS: "Highly Skilled",
     SQL: "Highly Skilled",
-    "No-SQL": "Highly Skilled",
+    "No-SQL": "Proficient",
     "Database Design": "Proficient",
   };
 
