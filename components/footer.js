@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import { Waypoint } from "react-waypoint";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
+import Fade from "@material-ui/core/Fade";
 
 function Footer() {
+  const [viewStatusOne, setViewStatusOne] = useState(false);
+
+  const handleEnteringOne = () => {
+    setViewStatusOne(true);
+  };
   return (
-    <div style={{ padding: "20px" }}>
-      <Typography
-        variant="body2"
-        align="center"
-        style={{ marginBottom: "10px" }}
-      >
-        Built with 💖 & NextJS By Khem Sok 🎯
-      </Typography>
-      {/* <Typography variant="body2" align="center">
-        Developed by Khem Sok 🎯
-      </Typography> */}
-    </div>
+    <>
+      <Waypoint onEnter={handleEnteringOne} />
+      <Fade in={viewStatusOne} timeout={1500}>
+        <div style={{ padding: "20px" }}>
+          <Typography
+            variant="body2"
+            align="center"
+            style={{ marginBottom: "10px" }}
+          >
+            Built with 💖 & NextJS By Khem Sok 🎯
+          </Typography>
+        </div>
+      </Fade>
+    </>
   );
 }
 
