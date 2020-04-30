@@ -35,6 +35,13 @@ export default function MyApp(props) {
         * {
           box-sizing: border-box;
         }
+
+        ::selection {
+          background: #ffb7b7; /* WebKit/Blink Browsers */
+        }
+        ::-moz-selection {
+          background: #ffb7b7; /* Gecko Browsers */
+        }
       `}</style>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
