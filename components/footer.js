@@ -14,7 +14,7 @@ function Footer() {
   return (
     <>
       <Waypoint onEnter={handleEnteringOne} />
-      <Fade in={viewStatusOne} timeout={1500}>
+      <Fade in={viewStatusOne} timeout={1000}>
         <div style={{ padding: "20px" }}>
           <Typography
             variant="body2"

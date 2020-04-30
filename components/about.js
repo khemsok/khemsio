@@ -78,7 +78,7 @@ function About() {
   const skillList = {
     Python: "Highly Skilled",
     JavaScript: "Highly Skilled",
-    R: "Proficient",
+    Java: "Proficient",
     Spark: "Proficient",
     PyTorch: "Proficient",
     "Azure/AWS": "Highly Skilled",
