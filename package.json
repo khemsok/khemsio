@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.9.1",
     "next": "9.3.6",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-waypoint": "^9.0.2"
   }
 }

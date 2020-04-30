@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Waypoint } from "react-waypoint";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
@@ -7,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Fade from "@material-ui/core/Fade";
 import Grow from "@material-ui/core/Grow";
+import Slide from "@material-ui/core/Slide";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -54,6 +57,25 @@ const useStyles = makeStyles({
 
 function About() {
   const classes = useStyles();
+  const [viewStatusOne, setViewStatusOne] = useState(false);
+  const [viewStatusTwo, setViewStatusTwo] = useState(false);
+  const [viewStatusThree, setViewStatusThree] = useState(false);
+  const [viewStatusFour, setViewStatusFour] = useState(false);
+
+  const handleEnteringOne = () => {
+    setViewStatusOne(true);
+  };
+  const handleEnteringTwo = () => {
+    setViewStatusTwo(true);
+  };
+  const handleEnteringThree = () => {
+    setViewStatusThree(true);
+  };
+
+  const handleEnteringFour = () => {
+    setViewStatusFour(true);
+  };
+
   const skillList = {
     Python: "Highly Skilled",
     JavaScript: "Highly Skilled",
@@ -83,89 +105,109 @@ function About() {
   });
   return (
     <div className={classes.container} id="about-me">
+      <Waypoint onEnter={handleEnteringOne} />
       <div className={classes.contentDescription}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "20px",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <Typography variant="h3">About Me</Typography>
-          <div
-            style={{
-              height: "2px",
-              backgroundColor: "grey",
-              width: "100%",
-              display: "inline-block",
-              marginLeft: "20px",
-              maxWidth: "250px",
-            }}
-          />
-        </div>
-
-        <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
+        <Fade in={viewStatusOne} timeout={500}>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <Typography variant="h3">About Me</Typography>
+              <div
+                style={{
+                  height: "2px",
+                  backgroundColor: "grey",
+                  width: "100%",
+                  display: "inline-block",
+                  marginLeft: "20px",
+                  maxWidth: "250px",
+                }}
+              />
+            </div>
+            <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
+          </div>
+        </Fade>
+        <Waypoint onEnter={handleEnteringTwo} />
         <div style={{ marginBottom: "20px" }}>
           {/* UPDATE TO STYLED*/}
-          <Typography
-            variant="h6"
-            color="primary"
-            style={{ marginBottom: "5x" }}
-          >
-            Who am I?
-          </Typography>
-          <Typography variant="h5" style={{ marginBottom: "10px" }}>
-            I'm Khem Sok and I'm a Machine Learning Engineer
-          </Typography>
-          <Typography variant="body1">
-            I graduated from{" "}
-            <Typography
-              color="primary"
-              component={"span"}
-              style={{ fontWeight: "700" }}
-            >
-              Penn State University
-            </Typography>{" "}
-            with a degree in Computer Engineering. During my time at Penn State,
-            I enjoy learning about various stacks which allows me to be
-            well-versed in many different fields of tech. I am currently working
-            at{" "}
-            <Typography
-              color="primary"
-              component={"span"}
-              style={{ display: "inline", fontWeight: "700" }}
-            >
-              DuPont
-            </Typography>{" "}
-            and my role allows me to be at the forefront of helping businesses
-            across DuPont to increase revenue with the usage of data.
-          </Typography>
+          <Grow in={viewStatusTwo} timeout={500}>
+            <div>
+              <Typography
+                variant="h6"
+                color="primary"
+                style={{ marginBottom: "5x" }}
+              >
+                Who am I?
+              </Typography>
+              <Typography variant="h5" style={{ marginBottom: "10px" }}>
+                I'm Khem Sok and I'm a Machine Learning Engineer
+              </Typography>
+
+              <Typography variant="body1">
+                I graduated from{" "}
+                <Typography
+                  color="primary"
+                  component={"span"}
+                  style={{ fontWeight: "700" }}
+                >
+                  Penn State University
+                </Typography>{" "}
+                with a degree in Computer Engineering. During my time at Penn
+                State, I enjoy learning about various stacks which allows me to
+                be well-versed in many different fields of tech. I am currently
+                working at{" "}
+                <Typography
+                  color="primary"
+                  component={"span"}
+                  style={{ display: "inline", fontWeight: "700" }}
+                >
+                  DuPont
+                </Typography>{" "}
+                and my role allows me to be at the forefront of helping
+                businesses across DuPont to increase revenue with the usage of
+                data.
+              </Typography>
+            </div>
+          </Grow>
         </div>
-        <div style={{ maxWidth: "500px", marginBottom: "50px" }}>
-          {/* CHANGE TO STYLED*/}
-          <Typography variant="body1" style={{ marginBottom: "10px" }}>
-            Here are some technologies I am well-versed in:
-          </Typography>
-          <Grid container>{skillListMap}</Grid>
-        </div>
-        <div className={classes.cvSection}>
-          <Button variant="contained" color="primary" size="small">
-            Download CV
-          </Button>
-          <div className={classes.horizontalBar} />
-          <div className={classes.socialMediaDiv}>
-            <a>
-              <LinkedInIcon />
-            </a>
-            <a>
-              <InstagramIcon />
-            </a>
-            <a>
-              <GitHubIcon />
-            </a>
+        <Waypoint onEnter={handleEnteringThree} />
+        <Grow in={viewStatusThree} timeout={500}>
+          <div>
+            <div style={{ maxWidth: "500px", marginBottom: "50px" }}>
+              {/* CHANGE TO STYLED*/}
+              <Typography variant="body1" style={{ marginBottom: "10px" }}>
+                Here are some technologies I am well-versed in:
+              </Typography>
+              <Grid container>{skillListMap}</Grid>
+            </div>
           </div>
-        </div>
+        </Grow>
+
+        <Waypoint onEnter={handleEnteringFour} />
+        <Slide direction="right" in={viewStatusFour} timeout={500}>
+          <div className={classes.cvSection}>
+            <Button variant="contained" color="primary" size="small">
+              Download CV
+            </Button>
+            <div className={classes.horizontalBar} />
+            <div className={classes.socialMediaDiv}>
+              <a>
+                <LinkedInIcon />
+              </a>
+              <a>
+                <InstagramIcon />
+              </a>
+              <a>
+                <GitHubIcon />
+              </a>
+            </div>
+          </div>
+        </Slide>
       </div>
     </div>
   );
