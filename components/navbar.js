@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Link } from "react-scroll";
+
 // MUI
 import Typography from "@material-ui/core/Typography";
 import Menu from "@material-ui/core/Menu";
@@ -111,10 +113,10 @@ function Navbar() {
   }, [prevScrollPos]);
 
   const sectionIdDict = {
-    "About Me": "#about-me",
-    Experience: "#experience",
-    Projects: "#projects",
-    Contact: "#contact",
+    "About Me": "about-me",
+    Experience: "experience",
+    Projects: "projects",
+    Contact: "contact",
   };
 
   const hamburger = (
@@ -131,7 +133,9 @@ function Navbar() {
       >
         {Object.keys(sectionIdDict).map((element, index) => (
           <MenuItem onClick={handleClose} key={index}>
-            <a href={sectionIdDict[element]}>{element}</a>
+            <Link to={sectionIdDict[element]} smooth={true}>
+              {element}
+            </Link>
           </MenuItem>
         ))}
       </Menu>
@@ -150,9 +154,14 @@ function Navbar() {
           </Typography>
           <div className={classes.navSection}>
             {Object.keys(sectionIdDict).map((element, index) => (
-              <a href={sectionIdDict[element]} key={index}>
+              <Link
+                to={sectionIdDict[element]}
+                smooth={true}
+                // duration={1000}
+                key={index}
+              >
                 <Typography variant="body1">{element}</Typography>
-              </a>
+              </Link>
             ))}
           </div>
           <div className={classes.navButton}>{hamburger}</div>
