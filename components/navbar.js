@@ -41,6 +41,8 @@ const useStyles = makeStyles({
       color: "inherit",
       textDecoration: "none",
       cursor: "pointer",
+      transition: "all .15s ease-in-out",
+
       "&:visited": {
         color: "inherit",
       },
