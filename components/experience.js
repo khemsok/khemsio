@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Waypoint } from "react-waypoint";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import Container from "@material-ui/core/Container";
+import Fade from "@material-ui/core/Fade";
+import Grow from "@material-ui/core/Grow";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -26,6 +28,29 @@ const useStyles = makeStyles({
 
 function Experience() {
   const classes = useStyles();
+  const [viewStatusOne, setViewStatusOne] = useState(false);
+  const [viewStatusTwo, setViewStatusTwo] = useState(false);
+  const [viewStatusThree, setViewStatusThree] = useState(false);
+  const [viewStatusFour, setViewStatusFour] = useState(false);
+  const [viewStatusFive, setViewStatusFive] = useState(false);
+
+  const handleEnteringOne = () => {
+    setViewStatusOne(true);
+  };
+  const handleEnteringTwo = () => {
+    setViewStatusTwo(true);
+  };
+  const handleEnteringThree = () => {
+    setViewStatusThree(true);
+  };
+
+  const handleEnteringFour = () => {
+    setViewStatusFour(true);
+  };
+
+  const handleEnteringFive = () => {
+    setViewStatusFive(true);
+  };
 
   const timelineObj = {
     dupont: {
@@ -45,72 +70,96 @@ function Experience() {
   };
 
   const timelineMap = Object.keys(timelineObj).map((element, index) => (
-    <div
-      style={{
-        marginBottom: "30px",
-        padding: "20px",
-        borderLeft: `2px solid ${timelineObj[element].color}`,
-      }}
-    >
-      <Typography variant="body2" color="primary">
-        {timelineObj[element].date}
-      </Typography>
-      <Typography
-        variant="body1"
-        style={{ fontWeight: "700", marginBottom: "20px" }}
+    <div>
+      {element === "dupont" ? (
+        <Waypoint onEnter={handleEnteringThree} />
+      ) : (
+        <Waypoint onEnter={handleEnteringFour} />
+      )}
+      <Fade
+        in={element === "dupont" ? viewStatusThree : viewStatusFour}
+        timeout={1000}
       >
-        {timelineObj[element].title}
-      </Typography>
-      <Typography variant="body1">
-        {timelineObj[element].description}
-      </Typography>
+        <div
+          style={{
+            marginBottom: "30px",
+            padding: "20px",
+            borderLeft: `2px solid ${timelineObj[element].color}`,
+          }}
+        >
+          <Typography variant="body2" color="primary">
+            {timelineObj[element].date}
+          </Typography>
+          <Typography
+            variant="body1"
+            style={{ fontWeight: "700", marginBottom: "20px" }}
+          >
+            {timelineObj[element].title}
+          </Typography>
+          <Typography variant="body1">
+            {timelineObj[element].description}
+          </Typography>
+        </div>
+      </Fade>
     </div>
   ));
   return (
     <div className={classes.container} id="experience">
       {/* <Container maxWidth="xs"> */}
+      <Waypoint onEnter={handleEnteringOne} />
       <div style={{ maxWidth: "700px" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "20px",
-          }}
-        >
-          <Typography variant="h3" style={{ display: "inline" }}>
-            Experience
-          </Typography>
-          <div
-            style={{
-              height: "2px",
-              backgroundColor: "grey",
-              width: "100%",
-              display: "inline-block",
-              marginLeft: "20px",
-              maxWidth: "250px",
-            }}
-          />
-        </div>
+        <Fade in={viewStatusOne} timeout={1000}>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <Typography variant="h3" style={{ display: "inline" }}>
+                Experience
+              </Typography>
+              <div
+                style={{
+                  height: "2px",
+                  backgroundColor: "grey",
+                  width: "100%",
+                  display: "inline-block",
+                  marginLeft: "20px",
+                  maxWidth: "250px",
+                }}
+              />
+            </div>
 
-        <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
-        <div style={{ marginBottom: "20px" }}>
-          <Typography variant="h6" color="primary">
-            Professional Timeline
-          </Typography>
-          <Typography variant="h5">What I've Done</Typography>
-        </div>
+            <LinearProgress style={{ width: "100px", marginBottom: "30px" }} />
+          </div>
+        </Fade>
+
+        <Waypoint onEnter={handleEnteringTwo} />
+        <Fade in={viewStatusTwo} timeout={1000}>
+          <div style={{ marginBottom: "20px" }}>
+            <Typography variant="h6" color="primary">
+              Professional Timeline
+            </Typography>
+            <Typography variant="h5">What I've Done</Typography>
+          </div>
+        </Fade>
         {timelineMap}
-        <div className={classes.experiencImagesDiv}>
-          <img
-            src="/images/pennstate.svg"
-            style={{ padding: "20px", opacity: "0.5", width: "200px" }}
-          />
+        <Waypoint onEnter={handleEnteringFive} />
+        <Fade in={viewStatusFive} timeout={1000}>
+          <div className={classes.experiencImagesDiv}>
+            <img
+              src="/images/pennstate.svg"
+              style={{ padding: "20px", opacity: "0.5", width: "200px" }}
+            />
 
-          <img
-            src="/images/DuPont.svg"
-            style={{ padding: "20px", opacity: "0.5", width: "200px" }}
-          />
-        </div>
+            <img
+              src="/images/DuPont.svg"
+              style={{ padding: "20px", opacity: "0.5", width: "200px" }}
+            />
+          </div>
+        </Fade>
       </div>
 
       {/* <div style={{ textAlign: "center", marginTop: "70px" }}>

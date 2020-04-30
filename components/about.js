@@ -9,7 +9,6 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Fade from "@material-ui/core/Fade";
 import Grow from "@material-ui/core/Grow";
-import Slide from "@material-ui/core/Slide";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,8 +49,7 @@ const useStyles = makeStyles({
   horizontalBar: {
     marginLeft: "30px",
     width: "50px",
-    height: "2.5px",
-    borderRadius: "3px",
+    height: "2px",
     backgroundColor: "#9f9f9f",
   },
 });
@@ -108,7 +106,7 @@ function About() {
     <div className={classes.container} id="about-me">
       <Waypoint onEnter={handleEnteringOne} />
       <div className={classes.contentDescription}>
-        <Fade in={viewStatusOne} timeout={500}>
+        <Fade in={viewStatusOne} timeout={1000}>
           <div>
             <div
               style={{
@@ -136,7 +134,7 @@ function About() {
         <Waypoint onEnter={handleEnteringTwo} />
         <div style={{ marginBottom: "20px" }}>
           {/* UPDATE TO STYLED*/}
-          <Grow in={viewStatusTwo} timeout={500}>
+          <Fade in={viewStatusTwo} timeout={1000}>
             <div>
               <Typography
                 variant="h6"
@@ -174,10 +172,10 @@ function About() {
                 data.
               </Typography>
             </div>
-          </Grow>
+          </Fade>
         </div>
         <Waypoint onEnter={handleEnteringThree} />
-        <Grow in={viewStatusThree} timeout={500}>
+        <Fade in={viewStatusThree} timeout={1000}>
           <div>
             <div style={{ maxWidth: "500px", marginBottom: "50px" }}>
               {/* CHANGE TO STYLED*/}
@@ -187,10 +185,10 @@ function About() {
               <Grid container>{skillListMap}</Grid>
             </div>
           </div>
-        </Grow>
+        </Fade>
 
         <Waypoint onEnter={handleEnteringFour} />
-        <Grow in={viewStatusFour} timeout={500}>
+        <Fade in={viewStatusFour} timeout={1000}>
           <div className={classes.cvSection}>
             <Button
               variant="contained"
@@ -215,7 +213,7 @@ function About() {
               </a>
             </div>
           </div>
-        </Grow>
+        </Fade>
       </div>
     </div>
   );
