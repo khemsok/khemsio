@@ -62,17 +62,20 @@ function Contact() {
             align="center"
             style={{ marginBottom: "30px" }}
           >
-            If you would like to say hi or want to collab, send me a note via
-            email.
+            If you would like to say hello or discuss business opportunities,
+            please feel free to reach out to me via email with the button below.
           </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            style={{ display: "block", margin: "0 auto" }}
-          >
-            Say Hi 👋
-          </Button>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button
+              variant="contained"
+              size="large"
+              component={"a"}
+              href="mailto: khemsok97@gmail.com"
+              color="primary"
+            >
+              Say Hi 👋
+            </Button>
+          </div>
         </div>
       </Fade>
     </div>

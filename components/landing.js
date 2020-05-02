@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
   },
   textSection: {
-    "& button": {
+    "& a": {
       marginTop: "25px",
     },
   },
@@ -41,7 +41,13 @@ function Landing() {
             Highly skilled in multitude of different stack. Have a passion for
             learning and creating.
           </Typography>
-          <Button size="large" variant="contained" color="primary">
+          <Button
+            component={"a"}
+            href="mailto:khemsok97@gmail.com"
+            size="large"
+            variant="contained"
+            color="primary"
+          >
             Contact Me
           </Button>
         </div>
