@@ -17,6 +17,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // MUI Icon
 import MenuIcon from "@material-ui/icons/Menu";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
 
 // Theme
 import { light, dark } from "../src/theme";
@@ -175,7 +176,7 @@ function Navbar({ theme, handleThemeChange }) {
             </div>
             <div className={classes.navButton}>{hamburger}</div>
             <IconButton onClick={handleThemeChange}>
-              <Brightness2Icon />
+              {theme === "light" ? <Brightness7Icon /> : <Brightness2Icon />}
             </IconButton>
           </div>
         </div>
