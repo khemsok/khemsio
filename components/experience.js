@@ -12,6 +12,9 @@ import { makeStyles } from "@material-ui/core/styles";
 // MUI Icons
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
+// Theme
+import { primaryColor } from "../src/theme";
+
 const useStyles = makeStyles({
   container: {
     padding: "100px 0",
@@ -68,14 +71,12 @@ function Experience() {
       title: "Machine Learning Engineer - DuPont",
       description:
         "My role at DuPont is unique as it allows me to have the opportunities to work on various stack and utilize my flexible skillset. My role goes beyond just Machine Learning/Data Science, I contribute majorly with Data Engineering as well as Full Stack Development. I am an asset to every team as my knowledge based are sound.",
-      color: "red",
     },
     psu: {
       date: "2014 - 2018",
       title: "Student - Pennsylvania State University",
       description:
         "I studied computer engineering at Penn State. During my time there, I held various teacher assistant positions for a multitude of different computer science courses, helping students with homeworks/projects as well as professors to create and design curriculum from semester to semesters. #WEARE",
-      color: "red",
     },
   };
 
@@ -94,7 +95,7 @@ function Experience() {
           style={{
             marginBottom: "30px",
             padding: "20px",
-            borderLeft: `2px solid ${timelineObj[element].color}`,
+            borderLeft: `2px solid ${primaryColor}`,
           }}
         >
           <Typography variant="body2" color="primary">

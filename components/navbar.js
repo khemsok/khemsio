@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+// Components
 import { Link } from "react-scroll";
 
 // MUI
@@ -15,6 +16,9 @@ import { makeStyles } from "@material-ui/core/styles";
 // MUI Icon
 import MenuIcon from "@material-ui/icons/Menu";
 
+// Theme
+import { primaryColor, backgroundColor } from "../src/theme";
+
 const useStyles = makeStyles({
   navMain: {
     display: "flex",
@@ -25,7 +29,7 @@ const useStyles = makeStyles({
     width: "100%",
     top: "0",
     transition: "all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
-    backgroundColor: "white",
+    backgroundColor: backgroundColor,
     "& a": {
       fontSize: "3em",
       cursor: "pointer",
@@ -33,7 +37,7 @@ const useStyles = makeStyles({
       textDecoration: "none",
       transition: "all .15s ease-in-out",
       "&:hover": {
-        color: "#FF3E55",
+        color: primaryColor,
       },
     },
   },
@@ -56,7 +60,7 @@ const useStyles = makeStyles({
         color: "inherit",
       },
       "&:hover": {
-        color: "#FF3E55",
+        color: primaryColor,
       },
     },
   },
