@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Waypoint } from "react-waypoint";
 
+// utils
+import { projects } from "../utils/projects";
+
 // MUI
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -14,7 +17,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Fade from "@material-ui/core/Fade";
+import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
+
+// MUI Icon
+import InfoIcon from "@material-ui/icons/Info";
 
 const useStyles = makeStyles({
   container: {
@@ -24,9 +31,76 @@ const useStyles = makeStyles({
   viewMore: {
     marginTop: "50px",
   },
+  projectBox: {
+    position: "relative",
+    color: "white",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "all .4s ease",
+    boxShadow:
+      "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1),0 16px 16px rgba(0,0,0,0.1)",
+    "& a": {
+      color: "inherit",
+    },
+    "&:hover": {
+      backgroundColor: "black",
+      transform: "scale(0.95)",
+      "& $imageBackground": {
+        opacity: ".5",
+        filter: "blur(1px)",
+      },
+      "& $title": {
+        opacity: "1",
+        filter: "blur(0px)",
+      },
+      "& $description": {
+        opacity: "1",
+      },
+      "& $techStack": {
+        opacity: "1",
+      },
+    },
+  },
+  imageBackground: {
+    display: "block",
+    width: "100%",
+    minHeight: "400px",
+    objectFit: "cover",
+    borderRadius: "5px",
+    transition: "all .4s ease-in-out",
+  },
+  projectMeta: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "80%",
+  },
+  title: {
+    opacity: "0",
+    transition: "all .4s ease-in-out",
+    // -webkit-filter: blur(5px),
+    filter: "blur(5px)",
+    textTransform: "uppercase",
+    fontFamily: "Roboto Condensed",
+    // textShadow:
+    //   "0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1)",
+  },
+  description: {
+    transition: "all .5s ease-in-out",
+    opacity: "0",
+  },
+  techStack: {
+    transition: "all .5s ease-in-out",
+    opacity: "0",
+  },
 });
 
-function Project({ imgDir, image }) {
+function Project({
+  imgDir,
+  project: { title, description, imgSrc, techStack, url },
+}) {
+  const classes = useStyles();
   const [viewStatus, setViewStatus] = useState(false);
   const handleEntering = () => {
     setViewStatus(true);
@@ -36,20 +110,57 @@ function Project({ imgDir, image }) {
     <Grid item xs={12} md={6}>
       <Waypoint onEnter={handleEntering} />
       <Fade in={viewStatus} timeout={1000}>
-        <Card>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              image={imgDir.concat(image)}
-              style={{
-                minHeight: "400px",
-                boxShadow:
-                  " 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
-                borderRadius: "5px",
-              }}
-            />
-          </CardActionArea>
-        </Card>
+        <div>
+          <div className={classes.projectBox}>
+            <a href={url} target="_blank">
+              <img
+                src={imgDir.concat(imgSrc)}
+                className={classes.imageBackground}
+              />
+              <div className={classes.projectMeta}>
+                <Typography
+                  variant="h4"
+                  className={classes.title}
+                  align="center"
+                >
+                  {title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={classes.description}
+                  align="center"
+                >
+                  {description}
+                </Typography>
+              </div>
+              {/* <div
+                style={{
+                  position: "absolute",
+                  bottom: "50px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "100%",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  className={classes.techStack}
+                  align="center"
+                >
+                  {techStack}
+                </Typography>
+              </div> */}
+
+              <div
+                style={{ position: "absolute", bottom: "10px", right: "10px" }}
+              >
+                <Tooltip title="Click me!" placement="top">
+                  <InfoIcon />
+                </Tooltip>
+              </div>
+            </a>
+          </div>
+        </div>
       </Fade>
     </Grid>
   );
@@ -74,16 +185,10 @@ function Projects() {
     setViewStatusFive(true);
   };
 
-  const imgList = [
-    "fer_ss1.jpg",
-    "filmlookup_ss1.png",
-    "lookupyourgithub_ss1.png",
-    "covid19ruinmysummer_ss1.png",
-  ];
   const imgDir = "/images/";
 
-  const projectMap = imgList.map((element, index) => (
-    <Project imgDir={imgDir} image={element} key={index} />
+  const projectMap = Object.keys(projects).map((element, index) => (
+    <Project imgDir={imgDir} project={projects[element]} key={index} />
   ));
 
   return (
