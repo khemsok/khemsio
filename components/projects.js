@@ -64,7 +64,7 @@ const useStyles = makeStyles({
   imageBackground: {
     display: "block",
     width: "100%",
-    minHeight: "400px",
+    minHeight: "450px",
     objectFit: "cover",
     borderRadius: "5px",
     transition: "all .4s ease-in-out",
