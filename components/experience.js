@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
 // Theme
-import { primaryColor } from "../src/theme";
+import { light, dark } from "../src/theme";
 
 const useStyles = makeStyles({
   container: {
@@ -28,19 +28,23 @@ const useStyles = makeStyles({
     },
     "& img": {
       padding: "20px",
-      opacity: "0.5",
+      opacity: "0.6",
       width: "200px",
       cursor: "pointer",
       transition: "all .15s ease-in-out",
       "&:hover": {
         opacity: "1",
+        filter: "brightness(150%)",
       },
     },
   },
 });
 
-function Experience() {
+function Experience({ theme }) {
+  const primaryColor =
+    theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
   const classes = useStyles();
+
   const [viewStatusOne, setViewStatusOne] = useState(false);
   const [viewStatusTwo, setViewStatusTwo] = useState(false);
   const [viewStatusThree, setViewStatusThree] = useState(false);
@@ -81,7 +85,7 @@ function Experience() {
   };
 
   const timelineMap = Object.keys(timelineObj).map((element, index) => (
-    <div>
+    <div key={index}>
       {element === "dupont" ? (
         <Waypoint onEnter={handleEnteringThree} />
       ) : (
@@ -170,11 +174,6 @@ function Experience() {
           </div>
         </Fade>
       </div>
-
-      {/* <div style={{ textAlign: "center", marginTop: "70px" }}>
-          <ArrowDownwardIcon fontSize="large" color="primary" />
-        </div> */}
-      {/* </Container> */}
     </div>
   );
 }

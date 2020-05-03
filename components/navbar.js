@@ -10,14 +10,16 @@ import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
 import Fade from "@material-ui/core/Fade";
 import Grow from "@material-ui/core/Grow";
+import Switch from "@material-ui/core/Switch";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 // MUI Icon
 import MenuIcon from "@material-ui/icons/Menu";
+import Brightness2Icon from "@material-ui/icons/Brightness2";
 
 // Theme
-import { primaryColor, backgroundColor } from "../src/theme";
+import { light, dark } from "../src/theme";
 
 const useStyles = makeStyles({
   navMain: {
@@ -28,8 +30,8 @@ const useStyles = makeStyles({
     position: "fixed",
     width: "100%",
     top: "0",
-    transition: "all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
-    backgroundColor: backgroundColor,
+    transition: "top 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s",
+    backgroundColor: (props) => props.backgroundColor,
     "& a": {
       fontSize: "3em",
       cursor: "pointer",
@@ -37,7 +39,7 @@ const useStyles = makeStyles({
       textDecoration: "none",
       transition: "all .15s ease-in-out",
       "&:hover": {
-        color: primaryColor,
+        color: (props) => props.primaryColor,
       },
     },
   },
@@ -60,7 +62,7 @@ const useStyles = makeStyles({
         color: "inherit",
       },
       "&:hover": {
-        color: primaryColor,
+        color: (props) => props.primaryColor,
       },
     },
   },
@@ -80,8 +82,14 @@ const useStyles = makeStyles({
   },
 });
 
-function Navbar() {
-  const classes = useStyles();
+function Navbar({ theme, handleThemeChange }) {
+  const primaryColor =
+    theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
+  const backgroundColor =
+    theme === "light"
+      ? light.palette.background.default
+      : dark.palette.background.default;
+  const classes = useStyles({ primaryColor, backgroundColor });
 
   const [prevScrollPos, setPrevScrollPos] = useState(null);
   const [visible, setVisible] = useState(true);
@@ -156,19 +164,20 @@ function Navbar() {
           <Typography variant="h1" component={"a"} href="/">
             K
           </Typography>
-          <div className={classes.navSection}>
-            {Object.keys(sectionIdDict).map((element, index) => (
-              <Link
-                to={sectionIdDict[element]}
-                smooth={true}
-                // duration={1000}
-                key={index}
-              >
-                <Typography variant="body1">{element}</Typography>
-              </Link>
-            ))}
+
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div className={classes.navSection}>
+              {Object.keys(sectionIdDict).map((element, index) => (
+                <Link to={sectionIdDict[element]} smooth={true} key={index}>
+                  <Typography variant="body1">{element}</Typography>
+                </Link>
+              ))}
+            </div>
+            <div className={classes.navButton}>{hamburger}</div>
+            <IconButton onClick={handleThemeChange}>
+              <Brightness2Icon />
+            </IconButton>
           </div>
-          <div className={classes.navButton}>{hamburger}</div>
         </div>
       </div>
     </Grow>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Waypoint } from "react-waypoint";
+import { light, dark } from "../src/theme";
 
 // MUI
 import Typography from "@material-ui/core/Typography";
@@ -43,7 +44,7 @@ const useStyles = makeStyles({
       transition: "all .15s ease-in-out",
     },
     "& a:hover": {
-      color: "#FF3E55",
+      color: (props) => props.primaryColor,
     },
   },
   horizontalBar: {
@@ -54,8 +55,11 @@ const useStyles = makeStyles({
   },
 });
 
-function About() {
-  const classes = useStyles();
+function About({ theme }) {
+  const primaryColor =
+    theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
+
+  const classes = useStyles({ primaryColor });
   const [viewStatusOne, setViewStatusOne] = useState(false);
   const [viewStatusTwo, setViewStatusTwo] = useState(false);
   const [viewStatusThree, setViewStatusThree] = useState(false);

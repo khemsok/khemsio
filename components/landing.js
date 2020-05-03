@@ -28,31 +28,33 @@ const useStyles = makeStyles({
 function Landing() {
   const classes = useStyles();
   return (
-    <Fade in={true} direction="right" timeout={1000}>
-      <div className={classes.container}>
-        <div className={classes.textSection}>
-          <Typography variant="h1" color="primary">
-            Khem Sok
-          </Typography>
-          <Typography variant="h2" className={classes.jobTitle}>
-            Machine Learning Engineer
-          </Typography>
-          <Typography variant="body1">
-            Highly skilled in multitude of different stack. Have a passion for
-            learning and creating.
-          </Typography>
-          <Button
-            component={"a"}
-            href="mailto:khemsok97@gmail.com"
-            size="large"
-            variant="contained"
-            color="primary"
-          >
-            Contact Me
-          </Button>
+    <div>
+      <Fade in={true} direction="right" timeout={1000}>
+        <div className={classes.container}>
+          <div className={classes.textSection}>
+            <Typography variant="h1" color="primary">
+              Khem Sok
+            </Typography>
+            <Typography variant="h2" className={classes.jobTitle}>
+              Machine Learning Engineer
+            </Typography>
+            <Typography variant="body1">
+              Highly skilled in multitude of different stack. Have a passion for
+              learning and creating.
+            </Typography>
+            <Button
+              component={"a"}
+              href="mailto:khemsok97@gmail.com"
+              size="large"
+              variant="contained"
+              color="primary"
+            >
+              Contact Me
+            </Button>
+          </div>
         </div>
-      </div>
-    </Fade>
+      </Fade>
+    </div>
   );
 }
 

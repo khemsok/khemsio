@@ -13,7 +13,7 @@ import Footer from "../components/footer";
 import Container from "@material-ui/core/Container";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export default function Home() {
+export default function Home({ theme, handleThemeChange }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -36,12 +36,12 @@ export default function Home() {
     </div>
   ) : (
     <>
-      <Navbar />
+      <Navbar theme={theme} handleThemeChange={handleThemeChange} />
 
       <Container maxWidth="md">
         <Landing />
-        <About />
-        <Experience />
+        <About theme={theme} />
+        <Experience theme={theme} />
         <Projects />
         <Contact />
         <Footer />
