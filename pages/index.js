@@ -42,7 +42,7 @@ export default function Home({ theme, handleThemeChange }) {
         <Landing />
         <About theme={theme} />
         <Experience theme={theme} />
-        <Projects />
+        <Projects theme={theme} />
         <Contact />
         <Footer />
       </Container>

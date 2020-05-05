@@ -16,6 +16,9 @@ import { makeStyles } from "@material-ui/core/styles";
 // MUI Icon
 import InfoIcon from "@material-ui/icons/Info";
 
+// Theme
+import { light, dark } from "../src/theme";
+
 const useStyles = makeStyles({
   container: {
     paddingTop: "150px",
@@ -36,7 +39,7 @@ const useStyles = makeStyles({
       color: "inherit",
     },
     "&:hover": {
-      backgroundColor: "black",
+      backgroundColor: (props) => props.primaryColor,
       transform: "scale(0.95)",
       "& $imageBackground": {
         opacity: ".5",
@@ -61,6 +64,7 @@ const useStyles = makeStyles({
     objectFit: "cover",
     borderRadius: "5px",
     transition: "all .4s ease-in-out",
+    borderBottom: (props) => `10px solid ${props.primaryColor}`,
   },
   projectMeta: {
     position: "absolute",
@@ -92,8 +96,12 @@ const useStyles = makeStyles({
 function Project({
   imgDir,
   project: { title, description, imgSrc, techStack, url },
+  theme,
 }) {
-  const classes = useStyles();
+  const primaryColor =
+    theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
+
+  const classes = useStyles({ primaryColor });
   const [viewStatus, setViewStatus] = useState(false);
   const handleEntering = () => {
     setViewStatus(true);
@@ -159,7 +167,7 @@ function Project({
   );
 }
 
-function Projects() {
+function Projects({ theme }) {
   const classes = useStyles();
 
   const [viewStatusOne, setViewStatusOne] = useState(false);
@@ -181,7 +189,12 @@ function Projects() {
   const imgDir = "/images/";
 
   const projectMap = Object.keys(projects).map((element, index) => (
-    <Project imgDir={imgDir} project={projects[element]} key={index} />
+    <Project
+      imgDir={imgDir}
+      project={projects[element]}
+      key={index}
+      theme={theme}
+    />
   ));
 
   return (
@@ -238,7 +251,7 @@ function Projects() {
             href="https://github.com/khemsok"
             target="_blank"
           >
-            View More
+            View More At GitHub
           </Button>
         </div>
       </Fade>
