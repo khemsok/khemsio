@@ -39,10 +39,11 @@ const useStyles = makeStyles({
       color: "inherit",
     },
     "&:hover": {
+      // backgroundColor: "black",
       backgroundColor: (props) => props.primaryColor,
-      transform: "scale(0.95)",
+      // transform: "scale(0.95)",
       "& $imageBackground": {
-        opacity: ".5",
+        opacity: ".7",
         filter: "blur(1px)",
       },
       "& $title": {
@@ -76,7 +77,7 @@ const useStyles = makeStyles({
     opacity: "0",
     transition: "all .4s ease-in-out",
     // -webkit-filter: blur(5px),
-    filter: "blur(5px)",
+    // filter: "blur(5px)",
     textTransform: "uppercase",
     fontFamily: "Roboto Condensed",
     // textShadow:
