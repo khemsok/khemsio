@@ -64,7 +64,6 @@ const useStyles = makeStyles({
     objectFit: "cover",
     borderRadius: "5px",
     transition: "all .4s ease-in-out",
-    borderBottom: (props) => `10px solid ${props.primaryColor}`,
   },
   projectMeta: {
     position: "absolute",
