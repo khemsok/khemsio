@@ -21,7 +21,7 @@ function Footer() {
             align="center"
             style={{ marginBottom: "10px" }}
           >
-            Built with 💖 using NextJS by Khem Sok 🎯
+            Built with 💖 using NextJS ⚡
           </Typography>
         </div>
       </Fade>
