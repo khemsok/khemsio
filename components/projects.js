@@ -48,7 +48,7 @@ const useStyles = makeStyles({
       },
       "& $title": {
         opacity: "1",
-        filter: "blur(0px)",
+        // filter: "blur(0px)",
       },
       "& $description": {
         opacity: "1",
@@ -77,7 +77,7 @@ const useStyles = makeStyles({
     opacity: "0",
     transition: "all .4s ease-in-out",
     // -webkit-filter: blur(5px),
-    filter: "blur(5px)",
+    // filter: "blur(5px)",
     textTransform: "uppercase",
     fontFamily: "Roboto Condensed",
     // textShadow:
