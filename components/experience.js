@@ -28,10 +28,10 @@ const useStyles = makeStyles({
     },
     "& img": {
       padding: "20px",
-      opacity: "0.6",
+      opacity: "0.3",
       width: "200px",
       cursor: "pointer",
-      transition: "all .15s ease-in-out",
+      transition: "all .3s ease-in-out",
       "&:hover": {
         opacity: "1",
         filter: "brightness(150%)",

@@ -33,18 +33,21 @@ const useStyles = makeStyles({
     borderRadius: "5px",
     cursor: "pointer",
     transition: "all .4s ease",
-    boxShadow:
-      "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1),0 16px 16px rgba(0,0,0,0.1)",
+    // boxShadow:
+    //   "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1),0 16px 16px rgba(0,0,0,0.1)",
     "& a": {
       color: "inherit",
     },
     "&:hover": {
-      backgroundColor: "black",
-      // backgroundColor: (props) => props.primaryColor,
-      transform: "scale(0.95)",
+      // backgroundColor: "black",
+      backgroundColor: (props) => props.primaryColor,
+      // transform: "scale(0.95)",
+      transform: "translateY(-.5rem)",
+      boxShadow:
+        "0 1px 1px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 8px 8px rgba(0,0,0,0.1),0 16px 16px rgba(0,0,0,0.1)",
       "& $imageBackground": {
         opacity: ".5",
-        filter: "blur(1px)",
+        // filter: "blur(1px)",
       },
       "& $title": {
         opacity: "1",
