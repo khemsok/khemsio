@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
     "& img": {
       padding: "20px",
-      opacity: "0.6",
+      opacity: "0.5",
       filter: "grayscale(100%)",
       width: "200px",
       cursor: "pointer",
