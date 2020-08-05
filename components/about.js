@@ -202,7 +202,7 @@ function About({ theme }) {
               color="primary"
               size="small"
               component={"a"}
-              href="/documents/khemSok.pdf"
+              href="/documents/khem_sok.pdf"
               target="_blank"
             >
               Download CV
