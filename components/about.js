@@ -210,13 +210,19 @@ function About({ theme }) {
             <div className={classes.horizontalBar} />
             <div className={classes.socialMediaDiv}>
               <a href="https://www.linkedin.com/in/khem-sok/" target="_blank">
-                <LinkedInIcon />
+                <Tooltip title="LinkedIn" placement="top">
+                  <LinkedInIcon />
+                </Tooltip>
               </a>
               <a href="https://www.instagram.com/_aceeeeeee_/" target="_blank">
-                <InstagramIcon />
+                <Tooltip title="Instagram" placement="top">
+                  <InstagramIcon />
+                </Tooltip>
               </a>
               <a href="https://github.com/khemsok" target="_blank">
-                <GitHubIcon />
+                <Tooltip title="GitHub" placement="top">
+                  <GitHubIcon />
+                </Tooltip>
               </a>
             </div>
           </div>
