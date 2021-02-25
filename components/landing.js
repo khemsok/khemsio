@@ -36,7 +36,7 @@ function Landing() {
               Khem Sok
             </Typography>
             <Typography variant="h2" className={classes.jobTitle}>
-              Machine Learning Engineer
+              Software Engineer
             </Typography>
             <Typography variant="body1">
               Highly skilled in multitude of different stack. Have a passion for
