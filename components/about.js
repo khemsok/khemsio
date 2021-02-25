@@ -151,7 +151,7 @@ function About({ theme }) {
                 Who am I?
               </Typography>
               <Typography variant="h5" style={{ marginBottom: "10px" }}>
-                I'm Khem Sok and I'm a Machine Learning Engineer
+                I'm Khem Sok and I'm a Software Engineer
               </Typography>
 
               <Typography variant="body1">
