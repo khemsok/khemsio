@@ -58,7 +58,13 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div role="tabpanel" hidden={value !== index} id={`vertical-tabpanel-${index}`} aria-labelledby={`vertical-tab-${index}`} {...other}>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
       {value === index && (
         <Box p={3} style={{ padding: "0 20px 20px 20px" }}>
           <Typography>{children}</Typography>
@@ -76,7 +82,8 @@ function a11yProps(index) {
 }
 
 function Experience({ theme }) {
-  const primaryColor = theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
+  const primaryColor =
+    theme === "light" ? light.palette.primary.main : dark.palette.primary.main;
   const classes = useStyles();
 
   const [viewStatusOne, setViewStatusOne] = useState(false);
@@ -106,21 +113,11 @@ function Experience({ theme }) {
   };
 
   const timelineObj = {
-    umich: {
-      date: "Aug 2020 - Present",
-      title: "Student - University of Michigan",
-      description: "Currently pursuing a Master degree in Data Science at the University of Michigan",
-    },
-    dupontDataSolution: {
-      date: "Apr 2020 - Present",
-      title: "Data Solution Architecture - DuPont",
-      description: "",
-    },
     dupontMachineLearning: {
-      date: "Jan 2019 - Apr 2020",
-      title: "Machine Learning Engineer - DuPont",
+      date: "Jan 2019 - Present",
+      title: "Software Engineer - DuPont",
       description:
-        "My role at DuPont is unique as it allows me to have the opportunities to work on various stack and utilize my flexible skillset. My role goes beyond just Machine Learning/Data Science, I contribute majorly with Data Engineering as well as Full Stack Development. I am an asset to every team as my knowledge based are sound.",
+        "My role at DuPont is unique as it allows me to have the opportunities to work on various stack and utilize my flexible skillset. I contribute majorly with Data Engineering, Machine Learning as well as Full Stack Development. I am an asset to every team as my knowledge based are sound.",
     },
     psu: {
       date: "2014 - 2018",
@@ -161,7 +158,9 @@ function Experience({ theme }) {
             April 2020 - Present
           </Typography>
           <Typography variant="body1" style={{ marginBottom: "25px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illo atque quis iure accusantium itaque laboriosam tenetur id modi blanditiis? Porro ex totam ipsa nobis!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Reprehenderit illo atque quis iure accusantium itaque laboriosam
+            tenetur id modi blanditiis? Porro ex totam ipsa nobis!
           </Typography>
         </Typography>
 
@@ -169,7 +168,11 @@ function Experience({ theme }) {
         <Typography variant="body2" style={{ marginBottom: "25px" }}>
           April 2020 - Present
         </Typography>
-        <Typography variant="body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illo atque quis iure accusantium itaque laboriosam tenetur id modi blanditiis? Porro ex totam ipsa nobis!</Typography>
+        <Typography variant="body1">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Reprehenderit illo atque quis iure accusantium itaque laboriosam
+          tenetur id modi blanditiis? Porro ex totam ipsa nobis!
+        </Typography>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Typography variant="h6">
@@ -180,7 +183,11 @@ function Experience({ theme }) {
           <Typography variant="body2" style={{ marginBottom: "25px" }}>
             August 2020 - Present
           </Typography>
-          <Typography variant="body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illo atque quis iure accusantium itaque laboriosam tenetur id modi blanditiis? Porro ex totam ipsa nobis!</Typography>
+          <Typography variant="body1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Reprehenderit illo atque quis iure accusantium itaque laboriosam
+            tenetur id modi blanditiis? Porro ex totam ipsa nobis!
+          </Typography>
         </Typography>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -192,7 +199,11 @@ function Experience({ theme }) {
           <Typography variant="body2" style={{ marginBottom: "25px" }}>
             August 2020 - Present
           </Typography>
-          <Typography variant="body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illo atque quis iure accusantium itaque laboriosam tenetur id modi blanditiis? Porro ex totam ipsa nobis!</Typography>
+          <Typography variant="body1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Reprehenderit illo atque quis iure accusantium itaque laboriosam
+            tenetur id modi blanditiis? Porro ex totam ipsa nobis!
+          </Typography>
         </Typography>
       </TabPanel>
     </div>
@@ -200,8 +211,15 @@ function Experience({ theme }) {
 
   const timelineMap = Object.keys(timelineObj).map((element, index) => (
     <div key={index}>
-      {element === "dupont" ? <Waypoint onEnter={handleEnteringThree} /> : <Waypoint onEnter={handleEnteringFour} />}
-      <Fade in={element === "dupont" ? viewStatusThree : viewStatusFour} timeout={1000}>
+      {element === "dupont" ? (
+        <Waypoint onEnter={handleEnteringThree} />
+      ) : (
+        <Waypoint onEnter={handleEnteringFour} />
+      )}
+      <Fade
+        in={element === "dupont" ? viewStatusThree : viewStatusFour}
+        timeout={1000}
+      >
         <div
           style={{
             marginBottom: "30px",
@@ -212,10 +230,15 @@ function Experience({ theme }) {
           <Typography variant="body2" color="primary">
             {timelineObj[element].date}
           </Typography>
-          <Typography variant="body1" style={{ fontWeight: "700", marginBottom: "20px" }}>
+          <Typography
+            variant="body1"
+            style={{ fontWeight: "700", marginBottom: "20px" }}
+          >
             {timelineObj[element].title}
           </Typography>
-          <Typography variant="body1">{timelineObj[element].description}</Typography>
+          <Typography variant="body1">
+            {timelineObj[element].description}
+          </Typography>
         </div>
       </Fade>
     </div>
@@ -262,7 +285,7 @@ function Experience({ theme }) {
             <Typography variant="h5">What I've Done</Typography>
           </div>
         </Fade>
-        {experienceTabs}
+        {timelineMap}
         <Waypoint onEnter={handleEnteringFive} />
         <Fade in={viewStatusFive} timeout={1000}>
           <div className={classes.experiencImagesDiv}>
