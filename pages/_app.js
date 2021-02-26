@@ -37,7 +37,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>Khem Sok | ML Engineer</title>
+        <title>Khem Sok | Software Engineer</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
